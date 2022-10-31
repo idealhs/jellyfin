@@ -6,6 +6,7 @@ using Emby.Naming.Video;
 using MediaBrowser.Controller.Entities;
 using MediaBrowser.Controller.Resolvers;
 using MediaBrowser.Model.Entities;
+using Microsoft.Extensions.Logging;
 using static Emby.Naming.Video.ExtraRuleResolver;
 
 namespace Emby.Server.Implementations.Library.Resolvers
@@ -20,14 +21,15 @@ namespace Emby.Server.Implementations.Library.Resolvers
         private readonly IItemResolver[] _videoResolvers;
 
         /// <summary>
-        /// Initializes an new instance of the <see cref="ExtraResolver"/> class.
+        /// Initializes a new instance of the <see cref="ExtraResolver"/> class.
         /// </summary>
+        /// <param name="logger">The logger.</param>
         /// <param name="namingOptions">An instance of <see cref="NamingOptions"/>.</param>
-        public ExtraResolver(NamingOptions namingOptions)
+        public ExtraResolver(ILogger<ExtraResolver> logger, NamingOptions namingOptions)
         {
             _namingOptions = namingOptions;
-            _trailerResolvers = new IItemResolver[] { new GenericVideoResolver<Trailer>(namingOptions) };
-            _videoResolvers = new IItemResolver[] { new GenericVideoResolver<Video>(namingOptions) };
+            _trailerResolvers = new IItemResolver[] { new GenericVideoResolver<Trailer>(logger, namingOptions) };
+            _videoResolvers = new IItemResolver[] { new GenericVideoResolver<Video>(logger, namingOptions) };
         }
 
         /// <summary>

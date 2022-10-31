@@ -115,7 +115,7 @@ namespace Emby.Server.Implementations.EntryPoints
             {
             }
 
-            var collectionFolders = _libraryManager.GetCollectionFolders(item).ToList();
+            var collectionFolders = _libraryManager.GetCollectionFolders(item);
 
             foreach (var collectionFolder in collectionFolders)
             {
@@ -326,7 +326,7 @@ namespace Emby.Server.Implementations.EntryPoints
         {
             var userIds = _sessionManager.Sessions
                 .Select(i => i.UserId)
-                .Where(i => !i.Equals(Guid.Empty))
+                .Where(i => !i.Equals(default))
                 .Distinct()
                 .ToArray();
 

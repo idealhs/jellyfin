@@ -11,6 +11,7 @@ using Jellyfin.Data.Enums;
 using MediaBrowser.Controller.Providers;
 using MediaBrowser.Model.Entities;
 using MediaBrowser.Model.IO;
+using MediaBrowser.Model.Providers;
 using Microsoft.Extensions.Logging;
 
 namespace MediaBrowser.Controller.Entities.TV
@@ -73,12 +74,12 @@ namespace MediaBrowser.Controller.Entities.TV
             get
             {
                 var seriesId = SeriesId;
-                if (seriesId.Equals(Guid.Empty))
+                if (seriesId.Equals(default))
                 {
                     seriesId = FindSeriesId();
                 }
 
-                return !seriesId.Equals(Guid.Empty) ? (LibraryManager.GetItemById(seriesId) as Series) : null;
+                return seriesId.Equals(default) ? null : (LibraryManager.GetItemById(seriesId) as Series);
             }
         }
 
@@ -88,12 +89,12 @@ namespace MediaBrowser.Controller.Entities.TV
             get
             {
                 var seasonId = SeasonId;
-                if (seasonId.Equals(Guid.Empty))
+                if (seasonId.Equals(default))
                 {
                     seasonId = FindSeasonId();
                 }
 
-                return !seasonId.Equals(Guid.Empty) ? (LibraryManager.GetItemById(seasonId) as Season) : null;
+                return seasonId.Equals(default) ? null : (LibraryManager.GetItemById(seasonId) as Season);
             }
         }
 
@@ -270,7 +271,7 @@ namespace MediaBrowser.Controller.Entities.TV
 
             var seasonId = SeasonId;
 
-            if (!seasonId.Equals(Guid.Empty) && !list.Contains(seasonId))
+            if (!seasonId.Equals(default) && !list.Contains(seasonId))
             {
                 list.Add(seasonId);
             }
@@ -336,6 +337,23 @@ namespace MediaBrowser.Controller.Entities.TV
             }
 
             return hasChanges;
+        }
+
+        public override List<ExternalUrl> GetRelatedUrls()
+        {
+            var list = base.GetRelatedUrls();
+
+            var imdbId = this.GetProviderId(MetadataProvider.Imdb);
+            if (!string.IsNullOrEmpty(imdbId))
+            {
+                list.Add(new ExternalUrl
+                {
+                    Name = "Trakt",
+                    Url = string.Format(CultureInfo.InvariantCulture, "https://trakt.tv/episodes/{0}", imdbId)
+                });
+            }
+
+            return list;
         }
     }
 }

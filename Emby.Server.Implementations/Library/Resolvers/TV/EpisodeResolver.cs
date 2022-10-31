@@ -6,6 +6,7 @@ using Emby.Naming.Common;
 using MediaBrowser.Controller.Entities.TV;
 using MediaBrowser.Controller.Library;
 using MediaBrowser.Model.Entities;
+using Microsoft.Extensions.Logging;
 
 namespace Emby.Server.Implementations.Library.Resolvers.TV
 {
@@ -17,9 +18,10 @@ namespace Emby.Server.Implementations.Library.Resolvers.TV
         /// <summary>
         /// Initializes a new instance of the <see cref="EpisodeResolver"/> class.
         /// </summary>
+        /// <param name="logger">The logger.</param>
         /// <param name="namingOptions">The naming options.</param>
-        public EpisodeResolver(NamingOptions namingOptions)
-            : base(namingOptions)
+        public EpisodeResolver(ILogger<EpisodeResolver> logger, NamingOptions namingOptions)
+            : base(logger, namingOptions)
         {
         }
 
@@ -28,7 +30,7 @@ namespace Emby.Server.Implementations.Library.Resolvers.TV
         /// </summary>
         /// <param name="args">The args.</param>
         /// <returns>Episode.</returns>
-        public override Episode Resolve(ItemResolveArgs args)
+        protected override Episode Resolve(ItemResolveArgs args)
         {
             var parent = args.Parent;
 

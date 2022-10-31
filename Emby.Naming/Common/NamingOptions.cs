@@ -23,47 +23,60 @@ namespace Emby.Naming.Common
         {
             VideoFileExtensions = new[]
             {
-                ".m4v",
+                ".001",
+                ".3g2",
                 ".3gp",
-                ".nsv",
-                ".ts",
-                ".ty",
-                ".strm",
-                ".rm",
-                ".rmvb",
-                ".ifo",
-                ".mov",
-                ".qt",
-                ".divx",
-                ".xvid",
-                ".bivx",
-                ".vob",
-                ".nrg",
-                ".img",
-                ".iso",
-                ".pva",
-                ".wmv",
+                ".amv",
                 ".asf",
                 ".asx",
-                ".ogm",
-                ".m2v",
                 ".avi",
                 ".bin",
-                ".dvr-ms",
-                ".mpg",
-                ".mpeg",
-                ".mp4",
-                ".mkv",
-                ".avc",
-                ".vp3",
-                ".svq3",
-                ".nuv",
-                ".viv",
+                ".bivx",
+                ".divx",
                 ".dv",
+                ".dvr-ms",
+                ".f4v",
                 ".fli",
                 ".flv",
-                ".001",
-                ".tp"
+                ".ifo",
+                ".img",
+                ".iso",
+                ".m2t",
+                ".m2ts",
+                ".m2v",
+                ".m4v",
+                ".mkv",
+                ".mk3d",
+                ".mov",
+                ".mp4",
+                ".mpe",
+                ".mpeg",
+                ".mpg",
+                ".mts",
+                ".mxf",
+                ".nrg",
+                ".nsv",
+                ".nuv",
+                ".ogg",
+                ".ogm",
+                ".ogv",
+                ".pva",
+                ".qt",
+                ".rec",
+                ".rm",
+                ".rmvb",
+                ".strm",
+                ".svq3",
+                ".tp",
+                ".ts",
+                ".ty",
+                ".viv",
+                ".vob",
+                ".vp3",
+                ".webm",
+                ".wmv",
+                ".wtv",
+                ".xvid"
             };
 
             VideoFlagDelimiters = new[]
@@ -140,7 +153,7 @@ namespace Emby.Naming.Common
 
             CleanStrings = new[]
             {
-                @"^\s*(?<cleaned>.+?)[ _\,\.\(\)\[\]\-](3d|sbs|tab|hsbs|htab|mvc|HDR|HDC|UHD|UltraHD|4k|ac3|dts|custom|dc|divx|divx5|dsr|dsrip|dutch|dvd|dvdrip|dvdscr|dvdscreener|screener|dvdivx|cam|fragment|fs|hdtv|hdrip|hdtvrip|internal|limited|multisubs|ntsc|ogg|ogm|pal|pdtv|proper|repack|rerip|retail|cd[1-9]|r3|r5|bd5|bd|se|svcd|swedish|german|read.nfo|nfofix|unrated|ws|telesync|ts|telecine|tc|brrip|bdrip|480p|480i|576p|576i|720p|720i|1080p|1080i|2160p|hrhd|hrhdtv|hddvd|bluray|blu-ray|x264|x265|h264|h265|xvid|xvidvd|xxx|www.www|AAC|DTS|\[.*\])([ _\,\.\(\)\[\]\-]|$)",
+                @"^\s*(?<cleaned>.+?)[ _\,\.\(\)\[\]\-](3d|sbs|tab|hsbs|htab|mvc|HDR|HDC|UHD|UltraHD|4k|ac3|dts|custom|dc|divx|divx5|dsr|dsrip|dutch|dvd|dvdrip|dvdscr|dvdscreener|screener|dvdivx|cam|fragment|fs|hdtv|hdrip|hdtvrip|internal|limited|multisubs|ntsc|ogg|ogm|pal|pdtv|proper|repack|rerip|retail|cd[1-9]|r5|bd5|bd|se|svcd|swedish|german|read.nfo|nfofix|unrated|ws|telesync|ts|telecine|tc|brrip|bdrip|480p|480i|576p|576i|720p|720i|1080p|1080i|2160p|hrhd|hrhdtv|hddvd|bluray|blu-ray|x264|x265|h264|h265|xvid|xvidvd|xxx|www.www|AAC|DTS|\[.*\])([ _\,\.\(\)\[\]\-]|$)",
                 @"^(?<cleaned>.+?)(\[.*\])",
                 @"^\s*(?<cleaned>.+?)\WE[0-9]+(-|~)E?[0-9]+(\W|$)",
                 @"^\s*\[[^\]]+\](?!\.\w+$)\s*(?<cleaned>.+)",
@@ -149,101 +162,147 @@ namespace Emby.Naming.Common
 
             SubtitleFileExtensions = new[]
             {
+                ".ass",
+                ".mks",
+                ".sami",
+                ".smi",
                 ".srt",
                 ".ssa",
-                ".ass",
-                ".sub"
-            };
-
-            SubtitleFlagDelimiters = new[]
-            {
-                '.'
-            };
-
-            SubtitleForcedFlags = new[]
-            {
-                "foreign",
-                "forced"
-            };
-
-            SubtitleDefaultFlags = new[]
-            {
-                "default"
+                ".sub",
+                ".vtt",
             };
 
             AlbumStackingPrefixes = new[]
             {
-                "disc",
                 "cd",
+                "disc",
                 "disk",
                 "vol",
                 "volume"
             };
 
+            ArtistSubfolders = new[]
+            {
+                "albums",
+                "broadcasts",
+                "bootlegs",
+                "compilations",
+                "dj-mixes",
+                "eps",
+                "live",
+                "mixtapes",
+                "others",
+                "remixes",
+                "singles",
+                "soundtracks",
+                "spokenwords",
+                "streets"
+            };
+
             AudioFileExtensions = new[]
             {
-                ".nsv",
-                ".m4a",
-                ".flac",
-                ".aac",
-                ".strm",
-                ".pls",
-                ".rm",
-                ".mpa",
-                ".wav",
-                ".wma",
-                ".ogg",
-                ".opus",
-                ".mp3",
-                ".mp2",
-                ".mod",
-                ".amf",
                 ".669",
+                ".3gp",
+                ".aa",
+                ".aac",
+                ".aax",
+                ".ac3",
+                ".act",
+                ".adp",
+                ".adplug",
+                ".adx",
+                ".afc",
+                ".amf",
+                ".aif",
+                ".aiff",
+                ".alac",
+                ".amr",
+                ".ape",
+                ".ast",
+                ".au",
+                ".awb",
+                ".cda",
+                ".cue",
                 ".dmf",
+                ".dsf",
                 ".dsm",
+                ".dsp",
+                ".dts",
+                ".dvf",
                 ".far",
+                ".flac",
                 ".gdm",
+                ".gsm",
+                ".gym",
+                ".hps",
                 ".imf",
                 ".it",
                 ".m15",
+                ".m4a",
+                ".m4b",
+                ".mac",
                 ".med",
+                ".mka",
+                ".mmf",
+                ".mod",
+                ".mogg",
+                ".mp2",
+                ".mp3",
+                ".mpa",
+                ".mpc",
+                ".mpp",
+                ".mp+",
+                ".msv",
+                ".nmf",
+                ".nsf",
+                ".nsv",
+                ".oga",
+                ".ogg",
                 ".okt",
+                ".opus",
+                ".pls",
+                ".ra",
+                ".rf64",
+                ".rm",
                 ".s3m",
-                ".stm",
                 ".sfx",
+                ".shn",
+                ".sid",
+                ".spc",
+                ".stm",
+                ".strm",
                 ".ult",
                 ".uni",
-                ".xm",
-                ".sid",
-                ".ac3",
-                ".dts",
-                ".cue",
-                ".aif",
-                ".aiff",
-                ".ape",
-                ".mac",
-                ".mpc",
-                ".mp+",
-                ".mpp",
-                ".shn",
+                ".vox",
+                ".wav",
+                ".wma",
                 ".wv",
-                ".nsf",
-                ".spc",
-                ".gym",
-                ".adplug",
-                ".adx",
-                ".dsp",
-                ".adp",
-                ".ymf",
-                ".ast",
-                ".afc",
-                ".hps",
+                ".xm",
                 ".xsp",
-                ".acc",
-                ".m4b",
-                ".oga",
-                ".dsf",
-                ".mka"
+                ".ymf"
+            };
+
+            MediaFlagDelimiters = new[]
+            {
+                '.'
+            };
+
+            MediaForcedFlags = new[]
+            {
+                "foreign",
+                "forced"
+            };
+
+            MediaDefaultFlags = new[]
+            {
+                "default"
+            };
+
+            MediaHearingImpairedFlags = new[]
+            {
+                "cc",
+                "hi",
+                "sdh"
             };
 
             EpisodeExpressions = new[]
@@ -280,7 +339,7 @@ namespace Emby.Naming.Common
                 // This isn't a Kodi naming rule, but the expression below causes false positives,
                 // so we make sure this one gets tested first.
                 // "Foo Bar 889"
-                new EpisodeExpression(@".*[\\\/](?![Ee]pisode)(?<seriesname>[\w\s]+?)\s(?<epnumber>[0-9]{1,3})(-(?<endingepnumber>[0-9]{2,3}))*[^\\\/x]*$")
+                new EpisodeExpression(@".*[\\\/](?![Ee]pisode)(?<seriesname>[\w\s]+?)\s(?<epnumber>[0-9]{1,4})(-(?<endingepnumber>[0-9]{2,4}))*[^\\\/x]*$")
                 {
                     IsNamed = true
                 },
@@ -411,6 +470,78 @@ namespace Emby.Naming.Common
                     MediaType.Video),
 
                 new ExtraRule(
+                    ExtraType.ThemeVideo,
+                    ExtraRuleType.DirectoryName,
+                    "backdrops",
+                    MediaType.Video),
+
+                new ExtraRule(
+                    ExtraType.ThemeSong,
+                    ExtraRuleType.DirectoryName,
+                    "theme-music",
+                    MediaType.Audio),
+
+                new ExtraRule(
+                    ExtraType.BehindTheScenes,
+                    ExtraRuleType.DirectoryName,
+                    "behind the scenes",
+                    MediaType.Video),
+
+                new ExtraRule(
+                    ExtraType.DeletedScene,
+                    ExtraRuleType.DirectoryName,
+                    "deleted scenes",
+                    MediaType.Video),
+
+                new ExtraRule(
+                    ExtraType.Interview,
+                    ExtraRuleType.DirectoryName,
+                    "interviews",
+                    MediaType.Video),
+
+                new ExtraRule(
+                    ExtraType.Scene,
+                    ExtraRuleType.DirectoryName,
+                    "scenes",
+                    MediaType.Video),
+
+                new ExtraRule(
+                    ExtraType.Sample,
+                    ExtraRuleType.DirectoryName,
+                    "samples",
+                    MediaType.Video),
+
+                new ExtraRule(
+                    ExtraType.Short,
+                    ExtraRuleType.DirectoryName,
+                    "shorts",
+                    MediaType.Video),
+
+                new ExtraRule(
+                    ExtraType.Featurette,
+                    ExtraRuleType.DirectoryName,
+                    "featurettes",
+                    MediaType.Video),
+
+                new ExtraRule(
+                    ExtraType.Unknown,
+                    ExtraRuleType.DirectoryName,
+                    "extras",
+                    MediaType.Video),
+
+                new ExtraRule(
+                    ExtraType.Unknown,
+                    ExtraRuleType.DirectoryName,
+                    "other",
+                    MediaType.Video),
+
+                new ExtraRule(
+                    ExtraType.Clip,
+                    ExtraRuleType.DirectoryName,
+                    "clips",
+                    MediaType.Video),
+
+                new ExtraRule(
                     ExtraType.Trailer,
                     ExtraRuleType.Filename,
                     "trailer",
@@ -471,21 +602,9 @@ namespace Emby.Naming.Common
                     MediaType.Video),
 
                 new ExtraRule(
-                    ExtraType.ThemeVideo,
-                    ExtraRuleType.DirectoryName,
-                    "backdrops",
-                    MediaType.Video),
-
-                new ExtraRule(
                     ExtraType.ThemeSong,
                     ExtraRuleType.Filename,
                     "theme",
-                    MediaType.Audio),
-
-                new ExtraRule(
-                    ExtraType.ThemeSong,
-                    ExtraRuleType.DirectoryName,
-                    "theme-music",
                     MediaType.Audio),
 
                 new ExtraRule(
@@ -525,65 +644,33 @@ namespace Emby.Naming.Common
                     MediaType.Video),
 
                 new ExtraRule(
-                    ExtraType.Clip,
+                    ExtraType.Featurette,
                     ExtraRuleType.Suffix,
                     "-featurette",
                     MediaType.Video),
 
                 new ExtraRule(
-                    ExtraType.Clip,
+                    ExtraType.Short,
                     ExtraRuleType.Suffix,
                     "-short",
                     MediaType.Video),
 
                 new ExtraRule(
-                    ExtraType.BehindTheScenes,
-                    ExtraRuleType.DirectoryName,
-                    "behind the scenes",
-                    MediaType.Video),
-
-                new ExtraRule(
-                    ExtraType.DeletedScene,
-                    ExtraRuleType.DirectoryName,
-                    "deleted scenes",
-                    MediaType.Video),
-
-                new ExtraRule(
-                    ExtraType.Interview,
-                    ExtraRuleType.DirectoryName,
-                    "interviews",
-                    MediaType.Video),
-
-                new ExtraRule(
-                    ExtraType.Scene,
-                    ExtraRuleType.DirectoryName,
-                    "scenes",
-                    MediaType.Video),
-
-                new ExtraRule(
-                    ExtraType.Sample,
-                    ExtraRuleType.DirectoryName,
-                    "samples",
-                    MediaType.Video),
-
-                new ExtraRule(
-                    ExtraType.Clip,
-                    ExtraRuleType.DirectoryName,
-                    "shorts",
-                    MediaType.Video),
-
-                new ExtraRule(
-                    ExtraType.Clip,
-                    ExtraRuleType.DirectoryName,
-                    "featurettes",
+                    ExtraType.Unknown,
+                    ExtraRuleType.Suffix,
+                    "-extra",
                     MediaType.Video),
 
                 new ExtraRule(
                     ExtraType.Unknown,
-                    ExtraRuleType.DirectoryName,
-                    "extras",
+                    ExtraRuleType.Suffix,
+                    "-other",
                     MediaType.Video)
             };
+
+            AllExtrasTypesFolderNames = VideoExtraRules
+                .Where(i => i.RuleType == ExtraRuleType.DirectoryName)
+                .ToDictionary(i => i.Token, i => i.ExtraType, StringComparer.OrdinalIgnoreCase);
 
             Format3DRules = new[]
             {
@@ -638,41 +725,6 @@ namespace Emby.Naming.Common
                 @"^\s*(?<name>[^ ].*?)\s*$"
             };
 
-            var extensions = VideoFileExtensions.ToList();
-
-            extensions.AddRange(new[]
-            {
-                ".mkv",
-                ".m2t",
-                ".m2ts",
-                ".img",
-                ".iso",
-                ".mk3d",
-                ".ts",
-                ".rmvb",
-                ".mov",
-                ".avi",
-                ".mpg",
-                ".mpeg",
-                ".wmv",
-                ".mp4",
-                ".divx",
-                ".dvr-ms",
-                ".wtv",
-                ".ogm",
-                ".ogv",
-                ".asf",
-                ".m4v",
-                ".flv",
-                ".f4v",
-                ".3gp",
-                ".webm",
-                ".mts",
-                ".m2v",
-                ".rec",
-                ".mxf"
-            });
-
             MultipleEpisodeExpressions = new[]
             {
                 @".*(\\|\/)[sS]?(?<seasonnumber>[0-9]{1,4})[xX](?<epnumber>[0-9]{1,3})((-| - )[0-9]{1,4}[eExX](?<endingepnumber>[0-9]{1,3}))+[^\\\/]*$",
@@ -690,25 +742,6 @@ namespace Emby.Naming.Common
                 IsNamed = true
             }).ToArray();
 
-            VideoFileExtensions = extensions
-                .Distinct(StringComparer.OrdinalIgnoreCase)
-                .ToArray();
-
-            AllExtrasTypesFolderNames = new Dictionary<string, ExtraType>(StringComparer.OrdinalIgnoreCase)
-            {
-                ["trailers"] = ExtraType.Trailer,
-                ["theme-music"] = ExtraType.ThemeSong,
-                ["backdrops"] = ExtraType.ThemeVideo,
-                ["extras"] = ExtraType.Unknown,
-                ["behind the scenes"] = ExtraType.BehindTheScenes,
-                ["deleted scenes"] = ExtraType.DeletedScene,
-                ["interviews"] = ExtraType.Interview,
-                ["scenes"] = ExtraType.Scene,
-                ["samples"] = ExtraType.Sample,
-                ["shorts"] = ExtraType.Clip,
-                ["featurettes"] = ExtraType.Clip
-            };
-
             Compile();
         }
 
@@ -723,29 +756,39 @@ namespace Emby.Naming.Common
         public string[] AudioFileExtensions { get; set; }
 
         /// <summary>
+        /// Gets or sets list of external media flag delimiters.
+        /// </summary>
+        public char[] MediaFlagDelimiters { get; set; }
+
+        /// <summary>
+        /// Gets or sets list of external media forced flags.
+        /// </summary>
+        public string[] MediaForcedFlags { get; set; }
+
+        /// <summary>
+        /// Gets or sets list of external media default flags.
+        /// </summary>
+        public string[] MediaDefaultFlags { get; set; }
+
+        /// <summary>
+        /// Gets or sets list of external media hearing impaired flags.
+        /// </summary>
+        public string[] MediaHearingImpairedFlags { get; set; }
+
+        /// <summary>
         /// Gets or sets list of album stacking prefixes.
         /// </summary>
         public string[] AlbumStackingPrefixes { get; set; }
 
         /// <summary>
+        /// Gets or sets list of artist subfolders.
+        /// </summary>
+        public string[] ArtistSubfolders { get; set; }
+
+        /// <summary>
         /// Gets or sets list of subtitle file extensions.
         /// </summary>
         public string[] SubtitleFileExtensions { get; set; }
-
-        /// <summary>
-        /// Gets or sets list of subtitles flag delimiters.
-        /// </summary>
-        public char[] SubtitleFlagDelimiters { get; set; }
-
-        /// <summary>
-        /// Gets or sets list of subtitle forced flags.
-        /// </summary>
-        public string[] SubtitleForcedFlags { get; set; }
-
-        /// <summary>
-        /// Gets or sets list of subtitle default flags.
-        /// </summary>
-        public string[] SubtitleDefaultFlags { get; set; }
 
         /// <summary>
         /// Gets or sets list of episode regular expressions.

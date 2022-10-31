@@ -129,7 +129,7 @@ namespace MediaBrowser.Controller.Entities
 
         public Guid[] ExcludeItemIds { get; set; }
 
-        public string? AdjacentTo { get; set; }
+        public Guid? AdjacentTo { get; set; }
 
         public string[] PersonTypes { get; set; }
 
@@ -204,6 +204,8 @@ namespace MediaBrowser.Controller.Entities
         public bool? IsSeries { get; set; }
 
         public int? MinIndexNumber { get; set; }
+
+        public int? MinParentIndexNumber { get; set; }
 
         public int? AiredDuringSeason { get; set; }
 
